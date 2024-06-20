@@ -1,14 +1,14 @@
 # go-log
 
-## Description
+## Description 📄
 
 The goal of this project is to provide a simple and easy to use binary which receives a command as an argument and logs the output of the command. The output can be logged to a file or to the standard output. The loglevel can be set to different levels according to the [`zerolog package`](https://pkg.go.dev/github.com/rs/zerolog).
 
-## Why this project?
+## Why this project? 🤔
 
 I created this project because I needed a simple way to log the output of a command in order to monitor the execution of a script/program/command. I faced some issues with Subprocesses in Python (timeout, graceful shutdown, etc) and I decided to create a simple binary in Go to solve this problem by using the [`os/exec package`](https://pkg.go.dev/os/exec) and the [`context`](https://pkg.go.dev/context) package.
 
-## How to build it?
+## How to build it? 🛠️
 
 The following command will build several binaries for different operating systems and architectures and place them in the [`build`](./build/) directory:
 
@@ -22,17 +22,17 @@ A simple `make` command will build only one binary with the machine configuratio
 make
 ```
 
-## Requirements
+## Requirements 📋
 
 - Built through the **Go**'s version **1.22.4**
 - `make` installed
 
-## Dependencies
+## Dependencies 📦
 
 - [`github.com/rs/zerolog`](https://pkg.go.dev/github.com/rs/zerolog): For logging the output of the command
 - [`github.com/spf13/pflag`](https://pkg.go.dev/github.com/spf13/pflag): For parsing the command line arguments
 
-## How to use it?
+## How to use it? 🚀
 
 The **only one required** argument is the `--command` flag, the other flags are **optional** and have default values which can be observed by running the binary with the `--help` flag.
 
@@ -47,3 +47,7 @@ You can also provide a timeout value to the command execution defined in `second
 ```bash
 ./build/go-log --command="sleep 5" --timeout=1
 ```
+
+## Credits 🙏
+
+I want to thank [lemoidului](https://gitlab.com/lemoidului) for his help and for the inspiration for the Makefile and project structure.
