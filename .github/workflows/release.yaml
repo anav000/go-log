@@ -1,0 +1,35 @@
+name: Distribution release
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+env:
+  BIN_NAME: go-log
+
+jobs:
+
+  release:
+    runs-on: golang
+    permissions:
+      contents: write
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.22
+
+    - name: Build the archive
+      run: make dist
+
+    - uses: ncipollo/release-action@v1
+      with:
+        bodyFile: ./CHANGELOG.md
+        artifacts: ./dist/${{ env.BIN_NAME }}-${{ env.VERSION }}.tar.gz
+      env:
+        VERSION: ${{ github.ref }}
+
