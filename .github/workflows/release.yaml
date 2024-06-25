@@ -3,7 +3,7 @@ name: Distribution release
 on:
   push:
     tags:
-    - 'v*'
+      - 'v*'
 
 env:
   BIN_NAME: go-log
@@ -11,7 +11,7 @@ env:
 jobs:
 
   release:
-    runs-on: golang
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
@@ -32,4 +32,3 @@ jobs:
         artifacts: ./dist/${{ env.BIN_NAME }}-${{ env.VERSION }}.tar.gz
       env:
         VERSION: ${{ github.ref }}
-
