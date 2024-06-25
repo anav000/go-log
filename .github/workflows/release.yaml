@@ -26,5 +26,6 @@ jobs:
       with:
         bodyFile: ./CHANGELOG.md
         artifacts: ./dist/${{ env.BIN_NAME }}-${{ env.VERSION }}.tar.gz
+        tag: ${{ github.ref }}
       env:
         VERSION: ${{ github.ref }}
