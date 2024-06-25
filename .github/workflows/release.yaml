@@ -2,26 +2,22 @@ name: Distribution release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [ "v1-release-ci" ]
 
 env:
   BIN_NAME: go-log
 
 jobs:
 
-  release:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-    - name: Check out code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
-        go-version: 1.22
+        go-version: '1.22'
 
     - name: Build the archive
       run: make dist
