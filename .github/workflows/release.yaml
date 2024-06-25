@@ -22,10 +22,14 @@ jobs:
     - name: Build the archive
       run: make dist
 
+    - name: Get version from Makefile
+      id: version
+      run: echo "VERSION=$(make version)" >> $GITHUB_ENV
+
     - uses: ncipollo/release-action@v1
       with:
         bodyFile: ./CHANGELOG.md
         artifacts: ./dist/${{ env.BIN_NAME }}-${{ env.VERSION }}.tar.gz
-        tag: ${{ github.ref }}
+        tag: ${{ env.VERSION }}
       env:
-        VERSION: ${{ github.ref }}
+        VERSION: ${{ env.VERSION }}
