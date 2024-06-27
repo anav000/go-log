@@ -2,7 +2,7 @@ name: Distribution release
 
 on:
   push:
-    branches: [ "v1-release-ci" ]
+    tags: [ "v*" ]
 
 env:
   BIN_NAME: go-log
