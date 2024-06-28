@@ -6,6 +6,7 @@ import (
 	"go-log/cmd"
 )
 
+// printVersion prints the version message.
 func printVersion() {
 	fmt.Printf("%s\n\n", cmd.Banner)
 	fmt.Printf("repository: %s\n", cmd.Repo)

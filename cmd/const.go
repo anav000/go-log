@@ -1,7 +1,11 @@
 package cmd
 
-import "runtime"
+import (
+	"os"
+	"runtime"
+)
 
+// Version, BuildDate, GoVersion, Output, Command, LogLevel, TimeOut, Env
 var (
 	Version   = "unknown"
 	BuildDate = "unknown"
@@ -10,8 +14,10 @@ var (
 	Command   = ""
 	LogLevel  = "info"
 	TimeOut   = 30
+	Env		  = os.Environ()
 )
 
+// Repo, Banner
 const (
 	Repo   = "go-log"
 	Banner = `░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░      ░▒▓██████▓▒░ ░▒▓██████▓▒░  

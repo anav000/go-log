@@ -9,7 +9,10 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-func CreateLogger() zerolog.Logger {
+// CreateLogger creates a logger with the specified output file.
+// If the output file is not specified, the logger will write to stderr.
+// The logger will also log the command, loglevel and output file if specified.
+func CreateLogger(envFile string) zerolog.Logger {
 	var logger zerolog.Logger
 
 	if cmd.Output != "" {
@@ -29,10 +32,13 @@ func CreateLogger() zerolog.Logger {
 			Int("pid", os.Getpid()).
 			Logger()
 	}
-	logger.Trace().Msgf("command: %s", cmd.Command)
-	logger.Trace().Msgf("loglevel: %s", log.Logger.GetLevel())
+	logger.Debug().Msgf("command: %s", cmd.Command)
+	logger.Debug().Msgf("loglevel: %s", log.Logger.GetLevel())
 	if cmd.Output != "" {
-		logger.Trace().Msgf("output: %s", cmd.Output)
+		logger.Debug().Msgf("output: %s", cmd.Output)
+	}
+	if envFile != "" {
+		logger.Debug().Msgf("env: %s", envFile)
 	}
 	return logger
 }
