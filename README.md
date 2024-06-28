@@ -42,11 +42,13 @@ The following command will log the output of the command `ls -la` to the file `o
 ./build/go-log --command="ls -la" --loglevel "info" --output "output.log"
 ```
 
-You can also provide a timeout value to the command execution defined in `seconds`, the following command will log the output of the command `sleep 5` to the standard output with the a timeout of 1 second, it will produce an error message because the command will take more than 1 second to execute:
+You can also provide a timeout value to the command execution defined in `seconds`, the following command will log the output of the command `sleep 5` to the standard output with a `timeout of 1 second`, it will produce an error message because the command will take more than 1 second to execute:
 
 ```bash
 ./build/go-log --command="sleep 5" --timeout=1
 ```
+
+*(Other examples can be found in the [`examples`](./examples/) directory.)*
 
 ## Credits 🙏
 
