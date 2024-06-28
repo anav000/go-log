@@ -3,6 +3,7 @@ module go-log
 go 1.22.4
 
 require (
+	github.com/joho/godotenv v1.5.1
 	github.com/rs/zerolog v1.33.0
 	github.com/spf13/pflag v1.0.5
 )
