@@ -31,6 +31,7 @@ make
 
 - [`github.com/rs/zerolog`](https://pkg.go.dev/github.com/rs/zerolog): For logging the output of the command
 - [`github.com/spf13/pflag`](https://pkg.go.dev/github.com/spf13/pflag): For parsing the command line arguments
+- [`github.com/joho/godotenv`](https://pkg.go.dev/github.com/joho/godotenv): For loading the environment variables from a `.env` file
 
 ## How to use it? 🚀
 
